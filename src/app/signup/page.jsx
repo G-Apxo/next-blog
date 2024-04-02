@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { auth, db } from "@/lib/firebase";
+import { auth, db } from "../../lib/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
@@ -21,7 +21,6 @@ const Login = () => {
         password
       );
       const id = userCredentials.user.uid;
-
       await setDoc(doc(db, "user", id), {
         email,
         name,

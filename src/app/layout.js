@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import "./globals.css";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 export default function RootLayout({ children }) {
   const router = useRouter();
@@ -13,7 +15,6 @@ export default function RootLayout({ children }) {
       if (!token) {
         router.push("/login");
       } else {
-        console.log("token", token);
       }
     };
     handleRouteChange();
@@ -21,7 +22,11 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

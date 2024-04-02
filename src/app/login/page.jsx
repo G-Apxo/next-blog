@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { auth } from "@/lib/firebase";
+import { auth, db } from "../../lib/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +18,7 @@ const Login = () => {
       );
       console.log(userCredentials._tokenResponse.expiresIn);
       sessionStorage.setItem("token", userCredentials.user.accessToken);
-      // window.location.href = "/";
+      window.location.href = "/";
     } catch (error) {
       console.error(error);
     }
