@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     const handleRouteChange = () => {
       const token = sessionStorage.getItem("token");
       if (!token) {
-        router.push("/login");
+        // router.push("/login");
       } else {
       }
     };
